@@ -17,14 +17,10 @@ const productSchema = new mongoose.Schema({
     },
     category:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:Category,
+        ref:'Category',
         required:true
-    },
-    id:{
-        type:Number,
-        required:true,
-        unique:true
     }
+    
 },{timestamps:true});
 
 const productModel = new mongoose.model('Product',productSchema);

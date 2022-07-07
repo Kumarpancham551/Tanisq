@@ -15,13 +15,13 @@ return category;
 
 const deleteCategory = async (id)=>{
     try{
-        const category = await Category.findByOneAndDelete({id:id});
+        const category = await Category.findOneAndDelete({id:id});
         return category;
     }catch(err){
         console.log(err);
     }
 }
-const getAllCaategories = async()=>{
+const getAllCategories = async()=>{
     try{
         const category = await Category.find();
         return category;
@@ -37,7 +37,7 @@ const getCategory = async(id)=>{
         console.log(err);
     }
 }
-const updateCategory = async(data,id)=>{
+const updateCategory = async(id,data)=>{
 try{
  const category = await Category.findOneAndUpdate({id:id},data,{new:true});
  return category
@@ -49,7 +49,7 @@ try{
 module.exports={
 createCategory,
 deleteCategory,
-getAllCaategories,
+getAllCategories,
 getCategory,
 updateCategory
 }
